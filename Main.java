@@ -19,7 +19,7 @@ public class Main
             System.out.println("Command: ");
             Command = Scanner1.nextLine();
             
-            if(Command == "end")
+            if(Command.equals("end"))
             {
                 break;
             }
