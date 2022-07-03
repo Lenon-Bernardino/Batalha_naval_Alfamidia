@@ -1,12 +1,10 @@
 ----------------------------------------------------------------------------
-Este é o arquivo README do projeto. Você deve descrever aqui o seu projeto.
-Informe ao usuário (alguém que não sabe nada sobre este projeto!) tudo que
-ele/ela precisa saber. Os comentários devem incluir, pelo menos:
-------------------------------------------------------------------------
+Um jogo para praticar programação em java, desenvolvido durante um curso da empresa Alfamídia
+no programa +PraTi.
+---------------------------------------------------------------------------
 
-TÍTULO DO PROJETO:
-OBJETIVO DO PROJETO:
-VERSÃO ou DATA:
-COMO INICIAR O PROJETO:
-AUTORES:
-INSTRUÇÕES PARA O USUÁRIO:
+TÍTULO DO PROJETO: Jogo de tiro em java
+OBJETIVO DO PROJETO: Praticar e utilizar todos os conceitos vistos durante o curso.
+VERSÃO ou DATA: 03/07/2022
+COMO INICIAR O PROJETO: Compilar todas as classes e executar a classe main.
+AUTORES: Lenon Saturnino Bernardino
