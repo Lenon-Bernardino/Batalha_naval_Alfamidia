@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Grid
+comment1.params=
+comment1.target=Grid()
+comment2.params=
+comment2.target=void\ DisplayGrid()
+comment3.params=x\ y
+comment3.target=void\ Shoot(int,\ int)
+numComments=4
