@@ -2,6 +2,11 @@ import java.util.Scanner;
 
 public class Main
 {
+    public static void DisplayWarning()
+    {
+        System.out.println("Invalid input, you must input two integers x and y in the format x,y, at least 0, and neither higher than 9\n");
+    }
+    
     public static void Main()
     {
         int x = 0;
@@ -34,11 +39,18 @@ public class Main
                     x = Integer.parseInt(StringX);
                     y = Integer.parseInt(StringY);
                     System.out.println("You've inputted: " + x + ", " + y);
-                    currentGrid.Shoot(x, y);
+                    if(x < 0 || x > 9 || y < 0 || y > 9)
+                    {
+                        DisplayWarning();
+                    }
+                    else
+                    {
+                        currentGrid.Shoot(x, y);
+                    }
                 }
                 catch (NumberFormatException ex)
                 {
-                    System.out.println("Invalid input, you must input two integers x and y in the format x,y, neither bigger than 10\n");
+                    DisplayWarning();
                 }
             }
             if(Command.equals("display"))

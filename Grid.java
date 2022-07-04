@@ -12,6 +12,8 @@ public class Grid
 {
     private List<List<Integer>> GridArray = new ArrayList<>();
     Random rn = new Random();
+    private int enemies_left = 0;
+    
     public Grid()
     {
         for(int i = 0; i < 10; i++)
@@ -20,9 +22,21 @@ public class Grid
             GridArray.add(current_array);
             for(int j = 0; j < 10; j++)
             {
-                int random_state = rn.nextInt(1 - 0 + 1) + 0;
+                int random_state = rn.nextInt(20 - 0 + 20) + 0;
                 
-                current_array.add(random_state);
+                if(random_state == 2)
+                {
+                    current_array.add(1);
+                }
+                else
+                {
+                    current_array.add(0);
+                }
+                
+                if(random_state == 1)
+                {
+                    enemies_left += 1;
+                }
             }
         }
     }
@@ -52,17 +66,56 @@ public class Grid
         }
     }
     
+    public double ClosestDistance(int x, int y)
+    {
+        double shortest_distance = 99999;
+        
+        for(int i = 0; i < GridArray.size(); i++)
+        {
+            for(int j = 0; j < GridArray.get(i).size(); j++)
+            {
+                int positionValue = GridArray.get(i).get(j);
+                
+                if(positionValue == 1)
+                {
+                    double distance = Math.sqrt(Math.pow(i + x, 2) + Math.pow(j + y, 2));
+                    if(distance < shortest_distance)
+                    {
+                        shortest_distance = distance;
+                    }
+                }
+            }
+        }
+        
+        return shortest_distance;
+    }
+    
     public void Shoot(int x, int y)
     {
         int position_xy = GridArray.get(x).get(y);
         if(position_xy == 0 || position_xy == 1)
         {
+            if(position_xy == 1)
+            {
+                enemies_left -= 1;
+            }
+            System.out.println("There are " + enemies_left + " enemies left to die.");
+            System.out.println("You are " + ClosestDistance(x, y) + " positions away from an enemy");
             GridArray.get(x).set(y, position_xy+2);
             DisplayGrid();
+            
+            if(enemies_left == 0)
+            {
+                System.out.print("\n\n\n\n==========================================\n");
+                System.out.print("You've won the game!!!!\n");
+                System.out.print("==========================================");
+                System.exit(0);
+            }
         }
         else
         {
             System.out.println("You've already shot at this coordinate!");
+            DisplayGrid();
         }
     }
 }
